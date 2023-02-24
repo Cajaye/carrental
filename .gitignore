@@ -1,2 +1,3 @@
 carrental/.env
 *.env
+.idea
