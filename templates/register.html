@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% block title %}Login{% endblock title %}
+{% block content %}
+    <div class="h-screen flex justify-center items-center">
+    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-sm" action="" method="post">
+    {% csrf_token %}
+        <div class="mb-4">
+    <label class="block text-grey-700 text-sm font-bold mb-2">Email</label>
+    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="email" name="email" placeholder="example@email.com" />
+        </div>
+         <div class="mb-4">
+    <label class="block text-grey-700 text-sm font-bold mb-2">Name</label>
+    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" name="name" placeholder="John Crow" />
+        </div>
+        <div class="mb-4">
+        <label class="block text-grey-700 text-sm font-bold mb-2">Password</label>
+        <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  type="password" name="password" placeholder="******************" />
+             </div>
+        <div class="mb-4">
+        <label class="block text-grey-700 text-sm font-bold mb-2">Address</label>
+    <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" id="autocomplete" type="search" name="address" placeholder="Enter a place..." />
+        </div>
+        <div class="mb-4">
+        <label class="block text-grey-700 text-sm font-bold mb-2">Bio</label>
+            <textarea class="appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" name="bio" rows="4" cols="50" maxlength="200"></textarea>
+        </div>
+    <input class="cursor-pointer bg-black text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" name="Sign in"/>
+    </form>
+    </div>
+{% endblock content %}

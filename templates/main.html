@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  	<meta charset="utf-8">
+  	<title>{% block title %} {% endblock title %}</title>
+  	<meta name="Ca-Jaye Clarke" content="">
+  	<meta name="description" content="Jamaica Car Rental Website">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+<main>
+
+{% if messages %}
+{% for message in messages %}
+    <p>{{ message }}</p>
+    </div>
+{% endfor %}
+{% endif %}
+
+  	{% block content %}
+    {% endblock content %}
+</main>
+<script src="https://cdn.tailwindcss.com"></script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&libraries=places&callback=initAutoComplete" async defer>
+</script>
+<script src="{% static 'base/index.js' %}"></script>
+</body>
+
+</html>

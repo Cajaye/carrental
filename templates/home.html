@@ -1,0 +1,41 @@
+{% extends 'main.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block content %}
+    <div class="w-full h-screen bg-[url({% static 'base/images/home.png' %})] bg-cover bg-center">
+    <div class="text-white pl-6">
+    {% include 'nav.html' %}
+    <div>
+    <div class="mb-4">
+        <a href="{% url 'cars' %}" class="inline-flex items-center text-4xl">Explore
+    <svg aria-hidden="true" class="w-4 h-4 ml-2 -mr-1" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+            </a>
+    </div>
+        {% if request.user.is_authenticated %}
+        <p class="mb-4">Hi {{ request.user }},</p>
+            {% else %}
+            <p class="mb-4">Hi User,</p>
+        {% endif %}
+    </div>
+        <div class="mb-8">
+            <h2 class="text-5xl w-72" >Book now and save up to 12% on any rental</h2>
+        </div>
+    <div class="relative">
+        <form class="flex items-center" action="{% url 'cars' %}" method="">
+             {% csrf_token %}
+    <div class="relative w-[30%]">
+        <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+            <svg aria-hidden="true" class="w-5 h-5 text-gray-500" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path></svg>
+        </div>
+        <input type="text" id="autocomplete" required class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5" name="q" placeholder="Parish,airport,street or hotel...">
+    </div>
+    <button type="submit" class="p-2.5 ml-2 text-sm font-medium text-white bg-blue-700 rounded-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        <span class="sr-only">Search</span>
+    </button>
+</form>
+
+    </div>
+    </div>
+    </div>
+{% endblock content %}

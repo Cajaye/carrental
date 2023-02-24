@@ -1,0 +1,30 @@
+<nav class="flex items-center justify-between p-4">
+    <a href="{% url 'home' %}">
+    <h1>LOGO</h1>
+    </a>
+    <ul class="flex items-center gap-6 pr-6">
+        <li>
+             {% if request.user.is_authenticated %}
+            <a href="{% url 'logout' %}">Logout</a>
+              {% else %}
+                 <a href="{% url 'login' %}">Login</a>
+          {% endif %}
+        </li>
+        <li>
+            <a href="">Maps</a>
+        </li>
+        <li>
+            <a href="">Chat</a>
+        </li>
+    {% if request.user.is_authenticated %}
+        <li>
+            <a href="{% url 'profile' request.user.id %}">
+                <div class="flex items-center gap-2">
+                <img class="w-10 h-10 object-cover rounded-full" src="{{ request.user.avatar.url }}"/>
+                <p>{{ request.user }}</p>
+                    </div>
+            </a>
+        </li>
+    {% endif %}
+    </ul>
+</nav>
